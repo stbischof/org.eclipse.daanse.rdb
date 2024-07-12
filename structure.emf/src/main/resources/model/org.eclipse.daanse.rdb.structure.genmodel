@@ -19,13 +19,14 @@
   <foreignModel>org.eclipse.daanse.rdb.structure.ecore</foreignModel>
   <genPackages prefix="RelationalDatabase" basePackage="org.eclipse.daanse.rdb.structure.emf"
       resource="XML" disposableProviderFactory="true" ecorePackage="org.eclipse.daanse.rdb.structure.ecore#/">
-    <genClasses ecoreClass="org.eclipse.daanse.rdb.structure.ecore#//Catalog">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference org.eclipse.daanse.rdb.structure.ecore#//Catalog/schemas"/>
+    <genClasses ecoreClass="org.eclipse.daanse.rdb.structure.ecore#//DatabaseCatalog">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference org.eclipse.daanse.rdb.structure.ecore#//DatabaseCatalog/schemas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference org.eclipse.daanse.rdb.structure.ecore#//DatabaseCatalog/links"/>
     </genClasses>
-    <genClasses ecoreClass="org.eclipse.daanse.rdb.structure.ecore#//Schema">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.rdb.structure.ecore#//Schema/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.rdb.structure.ecore#//Schema/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference org.eclipse.daanse.rdb.structure.ecore#//Schema/tables"/>
+    <genClasses ecoreClass="org.eclipse.daanse.rdb.structure.ecore#//DatabaseSchema">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.rdb.structure.ecore#//DatabaseSchema/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.rdb.structure.ecore#//DatabaseSchema/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference org.eclipse.daanse.rdb.structure.ecore#//DatabaseSchema/tables"/>
     </genClasses>
     <genClasses ecoreClass="org.eclipse.daanse.rdb.structure.ecore#//Table">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.rdb.structure.ecore#//Table/id"/>
