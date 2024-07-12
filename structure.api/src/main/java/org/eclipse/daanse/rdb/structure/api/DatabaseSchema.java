@@ -15,8 +15,9 @@ package org.eclipse.daanse.rdb.structure.api;
 
 import java.util.List;
 
-public interface Catalog {
+public interface DatabaseSchema {
 
-    List<? extends Schema> getSchemas();
+    List<? extends Table> getTables();
 
+    String getName();
 }

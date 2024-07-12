@@ -21,5 +21,5 @@ public interface Table {
 
     List<? extends Column> getColumns();
 
-    Schema getSchema();
+    DatabaseSchema getSchema();
 }

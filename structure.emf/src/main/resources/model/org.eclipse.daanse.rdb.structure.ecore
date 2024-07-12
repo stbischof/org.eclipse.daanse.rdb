@@ -16,26 +16,28 @@
   <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
     <details key="qualified" value="true"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="Catalog" eSuperTypes="#//ICatalog">
+  <eClassifiers xsi:type="ecore:EClass" name="DatabaseCatalog" eSuperTypes="#//ICatalog">
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemas" upperBound="-1"
-        eType="#//Schema" containment="true"/>
+        eType="#//DatabaseSchema" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//Link" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Schema" eSuperTypes="#//ISchema">
+  <eClassifiers xsi:type="ecore:EClass" name="DatabaseSchema" eSuperTypes="#//ISchema">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
         eType="#//Table" containment="true" eOpposite="#//Table/schema" eKeys="#//Table/name"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//ITable">
+  <eClassifiers xsi:type="ecore:EClass" name="Table" abstract="true" eSuperTypes="#//ITable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//Column" containment="true" eOpposite="#//Column/table" eKeys="#//Column/name"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//Schema"
-        eOpposite="#//Schema/tables"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//DatabaseSchema"
+        eOpposite="#//DatabaseSchema/tables"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PhysicalTable" eSuperTypes="#//IPhysicalTable #//Table"/>
   <eClassifiers xsi:type="ecore:EClass" name="SystemTable" eSuperTypes="#//ISystemTable #//Table"/>
@@ -61,9 +63,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="foreignKey" lowerBound="1"
         eType="#//Column"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ICatalog" instanceClassName="org.eclipse.daanse.rdb.structure.api.Catalog"
+  <eClassifiers xsi:type="ecore:EClass" name="ICatalog" instanceClassName="org.eclipse.daanse.rdb.structure.api.DatabaseCatalog"
       abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ISchema" instanceClassName="org.eclipse.daanse.rdb.structure.api.Schema"
+  <eClassifiers xsi:type="ecore:EClass" name="ISchema" instanceClassName="org.eclipse.daanse.rdb.structure.api.DatabaseSchema"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ITable" instanceClassName="org.eclipse.daanse.rdb.structure.api.Table"
       abstract="true" interface="true"/>
