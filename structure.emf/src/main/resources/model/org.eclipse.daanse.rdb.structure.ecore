@@ -16,6 +16,10 @@
   <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
     <details key="qualified" value="true"/>
   </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Catalog" eSuperTypes="#//ICatalog">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schemas" upperBound="-1"
+        eType="#//Schema" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Schema" eSuperTypes="#//ISchema">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -51,9 +55,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="foreignLinks" upperBound="-1"
         eType="#//Link" eOpposite="#//Link/primaryKey"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IColumn" instanceClassName="org.eclipse.daanse.rdb.structure.api.Column"
+  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//ILink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryKey" lowerBound="1"
+        eType="#//Column" eOpposite="#//Column/foreignLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="foreignKey" lowerBound="1"
+        eType="#//Column"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ICatalog" instanceClassName="org.eclipse.daanse.rdb.structure.api.Catalog"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ISchema" instanceClassName="org.eclipse.daanse.rdb.structure.api.Schema"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ITable" instanceClassName="org.eclipse.daanse.rdb.structure.api.Table"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IPhysicalTable" instanceClassName="org.eclipse.daanse.rdb.structure.api.PhysicalTable"
       abstract="true" interface="true"/>
@@ -61,14 +73,8 @@
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ISystemTable" instanceClassName="org.eclipse.daanse.rdb.structure.api.SystemTable"
       abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ITable" instanceClassName="org.eclipse.daanse.rdb.structure.api.Table"
+  <eClassifiers xsi:type="ecore:EClass" name="IColumn" instanceClassName="org.eclipse.daanse.rdb.structure.api.Column"
       abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//ILink">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryKey" lowerBound="1"
-        eType="#//Column" eOpposite="#//Column/foreignLinks"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="foreignKey" lowerBound="1"
-        eType="#//Column"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ILink" instanceClassName="org.eclipse.daanse.rdb.structure.api.Link"
       abstract="true" interface="true"/>
 </ecore:EPackage>
